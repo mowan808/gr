@@ -1,0 +1,4 @@
+html,body{height: 100%;padding: 0; margin: 0;width: 100%;}
+.container-fluid,.row{bottom:0 !important;}
+.col-md-4{border-right: 1px solid #eee;bottom:0 !important;}
+.col-md-8{bottom:0 !important;border-right: 1px solid #eee;}
