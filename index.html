@@ -1,35 +1,291 @@
 <!DOCTYPE html>
-<html lang="utf-8">
+<html lang="UTF-8">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-<link rel="stylesheet" href="css/style.css">
-<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <!--[if lt IE 9]>
-      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>大虫的博客</title>
+    <meta name="description" content="大虫的博客"/>
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="format-detection" content="telphone=no, email=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
 
-<title>首页</title>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+   <script>
+        //theme
+        var default_theme = "dark";//"dark" or "light".or "default" to choose theme by time
+        var light_theme = "css/white.css";//the location of light theme css
+        var dark_theme = "css/grey.css";//the location of dark theme css
+        //config
+        var default_post = "";//the post which show when the blog main page is open. 
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/default.css"/>
+    <link rel="stylesheet" type="text/css" href="css/nprogress.css"/>
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css"/>
 </head>
-<body>
-    <div class="container-fluid">
-        <div class="row">
-         <div class="col-md-4 borders m-ht">
-            <!--分两栏-->
-            <div class="col-sm-2 m-ht borders" id="nav">导航</div>
-            <div class="col-sm-10 m-ht" id="cont">文章列表</div>
-         </div>
-         <div class="col-md-8 borders m-ht" id="detail">2233</div>
-       </div>
+<body class="home-template">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-md-4 col-lg-3" id="left-bar">
+            <div class="row">
+                <div class="col-xs-4 col-md-4" id="navigation">
+                   <div class="row scroll">
+    <br>
+
+    <div id="logo" class="text-center">
+         <a href="http://allan.li"><img src="http://ghost-blog.b0.upaiyun.com/image/5/69/a6b82f93a3cb1103c3f9bac629382.jpg" alt="李阿伦的博客"></a>
     </div>
+    <br>
+
+    <div id="category">
+        <div id="category-list" class="scroll">
+            <ul class="nav nav-stacked">
+           <li class="nav-item">
+                        <a href="http://allan.li/" class="nav-link nav-" data-toggle="tab"
+                           onclick="navigationFunction(this)">所有文章</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://allan.li/tag/java/" class="nav-link nav-java" data-toggle="tab"
+                           onclick="navigationFunction(this)">Java</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://allan.li/tag/mysql/" class="nav-link nav-mysql" data-toggle="tab"
+                           onclick="navigationFunction(this)">MySQL</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://allan.li/tag/linux/" class="nav-link nav-linux" data-toggle="tab"
+                           onclick="navigationFunction(this)">Linux</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://allan.li/tag/redis/" class="nav-link nav-redis" data-toggle="tab"
+                           onclick="navigationFunction(this)">Redis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://allan.li/tag/quick-find/" class="nav-link nav-" data-toggle="tab"
+                           onclick="navigationFunction(this)">速查</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://allan.li/tag/personal/" class="nav-link nav-" data-toggle="tab"
+                           onclick="navigationFunction(this)">个人</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://allan.li/everblog-theme/" class="nav-link nav-" data-toggle="tab"
+                           onclick="navigationFunction(this)">关于主题</a>
+                    </li>
+               
+            </ul>
+        </div>
+    </div>
+    <footer id="nav-footer">
+        <div id="style-changer">
+            <a id="light" href="javascript:changeTheme('light');" style="display: inline-block;">
+                <img src="image/PH_Day_50x50.png">
+            </a>
+            <a id="dark" href="javascript:changeTheme('dark');" style="display: none;">
+                <img src="image/PH_Night_50x50.png">
+            </a>
+        </div>
+    </footer>
+</div>
+                </div>
+                <div class="col-xs-8 col-md-8" id="blog-list">
+                    <div class="row">
+    <div class="list-group scroll">
+        <div class="list-container">
+                <article href="/mysqlsuo-yin-bei-hou-de-shu-ju-jie-gou-ji-suan-fa-yuan-li/" class="list-group-item blog-excerpt post tag-mysql" onclick="loadBlog(this)">
+                    <div class="blog-excerpt-title text-overflow">
+                        MySQL索引背后的数据结构及算法原理
+                    </div>
+                    <div class="blog-excerpt-date text-overflow">
+                        2016-03-04
+                    </div>
+                    <div class="blog-excerpt-content">
+                        转自codinglabs 摘要 本文以MySQL数据库为研究对象，讨论与数据库索引相关的一些话题。特别需要说明的是，MySQL支持诸多存储引擎，而各种存储引擎对索引的支持也各不相同，因此MySQL数据库支持多种索引类型，如BTree索
+                    </div>
+                </article>
+                <article href="/intellij-ideakuai-su-cha-kan-javalei-zi-jie-ma/" class="list-group-item blog-excerpt post tag-java tag-intellij-idea tag-jvm" onclick="loadBlog(this)">
+                    <div class="blog-excerpt-title text-overflow">
+                        Intellij idea快速查看Java类字节码
+                    </div>
+                    <div class="blog-excerpt-date text-overflow">
+                        2016-02-20
+                    </div>
+                    <div class="blog-excerpt-content">
+                        最近在研究JVM类加载、JVM字节码相关的东西，需要经常查看字节码。之前都是用一些外部工具例如bytecoder、JD或者直接cmd使用javap的方式查看字节码。但是使用起来比较麻烦，毕竟不如直接在IDE中直接查看方便。于是在网上搜索，I
+                    </div>
+                </article>
+                <article href="/vim-shortcut/" class="list-group-item blog-excerpt post tag-quick-find tag-vim" onclick="loadBlog(this)">
+                    <div class="blog-excerpt-title text-overflow">
+                        VIM快捷键
+                    </div>
+                    <div class="blog-excerpt-date text-overflow">
+                        2016-02-01
+                    </div>
+                    <div class="blog-excerpt-content">
+                        光标移动 h 左移光标 j 下移光标 k 上移光标 l 右移光标 w 光标往前移动1个词 b 光标往后移动1个词 0 移动光标到当前行首 $ 移动光标到行尾。 gg 将光标移到文件头部 G 将光标移到文件尾部 # 向下移动#行 # 向后移动
+                    </div>
+                </article>
+                <article href="/javazhong-de-tao-yi-fen-xi-he-tlabyi-ji-javadui-xiang-fen-pei/" class="list-group-item blog-excerpt post tag-java tag-jvm" onclick="loadBlog(this)">
+                    <div class="blog-excerpt-title text-overflow">
+                        Java中的逃逸分析和TLAB以及Java对象分配
+                    </div>
+                    <div class="blog-excerpt-date text-overflow">
+                        2016-01-30
+                    </div>
+                    <div class="blog-excerpt-content">
+                        转自Snowball的博客 我们在学习使用Java的过程中，一般认为new出来的对象都是被分配在堆上，但是这个结论不是那么的绝对，通过对Java对象分配的过程分析，可以知道有两个地方会导致Java中new出来的对象并一定分别在所认为的
+                    </div>
+                </article>
+                <article href="/mysql-index-optimize/" class="list-group-item blog-excerpt post tag-mysql featured" onclick="loadBlog(this)">
+                    <div class="blog-excerpt-title text-overflow">
+                        从MySQL Bug#67718浅谈B+树索引的分裂优化
+                    </div>
+                    <div class="blog-excerpt-date text-overflow">
+                        2016-01-14
+                    </div>
+                    <div class="blog-excerpt-content">
+                        转自何登成的技术博客 问题背景 今天，看到Twitter的DBA团队发布了其最新的MySQL分支：Changes in Twitter MySQL 5.5.28.t9，此分支最重要的一个改进，就是修复了MySQL 的Bug #6771
+                    </div>
+                </article>
+                <article href="/zookeeperxue-xi-dan-ji-mo-shi-an-zhuang-he-javaru-men-shi-li/" class="list-group-item blog-excerpt post tag-java tag-zookeeper" onclick="loadBlog(this)">
+                    <div class="blog-excerpt-title text-overflow">
+                        Zookeeper学习-1.介绍、安装、数据结构
+                    </div>
+                    <div class="blog-excerpt-date text-overflow">
+                        2016-01-12
+                    </div>
+                    <div class="blog-excerpt-content">
+                        ZooKeep介绍 Apache ZooKeeper™分布式服务框架是 Apache Hadoop 的一个子项目，它主要是用来解决分布式应用中经常遇到的一些数据管理问题，如：统一命名服务、状态同步服务、集群管理、分布式应用配置项的管理等。
+                    </div>
+                </article>
+                <article href="/yong-shi-tiao-ming-ling-zai-fen-zhong-nei-jian-cha-linux-fu-wu-qi-xing-neng/" class="list-group-item blog-excerpt post tag-linux" onclick="loadBlog(this)">
+                    <div class="blog-excerpt-title text-overflow">
+                        用十条命令在一分钟内检查 Linux 服务器性能
+                    </div>
+                    <div class="blog-excerpt-date text-overflow">
+                        2015-12-25
+                    </div>
+                    <div class="blog-excerpt-content">
+                        转自OSChina 如果你的Linux服务器突然负载暴增，告警短信快发爆你的手机，如何在最短时间内找出Linux性能问题所在？来看Netflix性能工程团队的这篇博文，看它们通过十条命令在一分钟内对机器性能问题进行诊断。 概述 通过执
+                    </div>
+                </article>
+                <article href="/java-8-tutorial/" class="list-group-item blog-excerpt post tag-java" onclick="loadBlog(this)">
+                    <div class="blog-excerpt-title text-overflow">
+                        Java 8简明教程
+                    </div>
+                    <div class="blog-excerpt-date text-overflow">
+                        2015-11-05
+                    </div>
+                    <div class="blog-excerpt-content">
+                        转自ImportNew-Java 8简明教程 “Java并没有没落，人们很快就会发现这一点” 欢迎阅读我编写的Java8介绍。本教程将带领你一步一步地认识这门语言的新特性。通过简单明了的代码示例，你将会学习到如何使用默认接口方法，La
+                    </div>
+                </article>
+                <article href="/everblog-theme/" class="list-group-item blog-excerpt post tag-personal" onclick="loadBlog(this)">
+                    <div class="blog-excerpt-title text-overflow">
+                        Ghost博客主题-EverBlog
+                    </div>
+                    <div class="blog-excerpt-date text-overflow">
+                        2015-10-29
+                    </div>
+                    <div class="blog-excerpt-content">
+                        前提： 很早就打算开一个博客，记录自己遇到的技术问题、身边发生的事情什么的。我希望博客能有明确的分类，而不是一个瀑布流把所有博客打出来，这样内容很难进行检索。这可能也就是一个技术人员和绝大多数人思路的不同吧。 现成的博客框架很多，我一个一个
+                    </div>
+                </article>
+                <article href="/tencent-interview/" class="list-group-item blog-excerpt post tag-personal" onclick="loadBlog(this)">
+                    <div class="blog-excerpt-title text-overflow">
+                        腾讯效果广告平台面试题
+                    </div>
+                    <div class="blog-excerpt-date text-overflow">
+                        2015-10-27
+                    </div>
+                    <div class="blog-excerpt-content">
+                        毕业2年多了，机缘巧合直接进了第一家公司，到现在还没有参加过面试，今天，终于迎来了人生中第一次面试，腾讯广告效果平台。 一共有6道题，当时我也没有拍下来，就凭记忆回想一下了： 第一题 程序执行，会打印什么？ public class Lis
+                    </div>
+                </article>
+                <article href="/javaxian-cheng-an-quan-de-ji-shu-qi/" class="list-group-item blog-excerpt post tag-java" onclick="loadBlog(this)">
+                    <div class="blog-excerpt-title text-overflow">
+                        Java线程安全的计数器
+                    </div>
+                    <div class="blog-excerpt-date text-overflow">
+                        2015-10-27
+                    </div>
+                    <div class="blog-excerpt-content">
+                        int（Integer）是否线程安全？ 今天突然想到了一个问题，在很多需要计数器的地方，我都是用的int类型做计数，需要增加计数的时候使用++或者+n操作。那么这种操作是否安全？int类型是否是线程安全的？于是我做了一个实验 public
+                    </div>
+                </article>
+                <article href="/20-experience-to-optimize-mysql/" class="list-group-item blog-excerpt post tag-mysql" onclick="loadBlog(this)">
+                    <div class="blog-excerpt-title text-overflow">
+                        MySQL性能优化的最佳20+条经验
+                    </div>
+                    <div class="blog-excerpt-date text-overflow">
+                        2015-10-22
+                    </div>
+                    <div class="blog-excerpt-content">
+                        转自酷壳-MySQL性能优化的最佳20+条经验 今天，数据库的操作越来越成为整个应用的性能瓶颈了，这点对于Web应用尤其明显。关于数据库的性能，这并不只是DBA才需要担心的事，而这更是我们程序员需要去关注的事情。当我们去设计数据库表结
+                    </div>
+                </article>
+        </div>
+            <nav id="pagination" style="text-align: center">
+        <a id="next-page" href="/page/2/" onclick="loadBlogListNextPage()">Next page</a>
+    </nav>
+
+    </div>
+</div>                </div>
+            </div>
+        </div>
+        <div class="hidden-xs hidden-sm col-xs-12 col-md-8 col-lg-9" id="blog-view">
+             <div class="row">
+        <header id="blog-view-header" class="headroom animated headroom--top">
+            <div>
+                <button onclick="javascript:smallScreenPageChange(1)" class="btn">&lt; Back</button>
+            </div>
+        </header>
+        <article class="blog-view-container post tag-java tag-intellij-idea tag-jvm">
+            <header>
+                <div class="blog-view-title">
+	                Intellij idea快速查看Java类字节码
+                </div>
+                <div class="blog-view-date">
+					2016-02-20
+                </div>
+            </header>
+            <hr>
+            <div class="blog-view-content">
+				<p>最近在研究JVM类加载、JVM字节码相关的东西，需要经常查看字节码。之前都是用一些外部工具例如<a href="http://bytecodeviewer.com/">bytecoder</a>、<a href="http://jd.benow.ca/">JD</a>或者直接cmd使用javap的方式查看字节码。但是使用起来比较麻烦，毕竟不如直接在IDE中直接查看方便。于是在网上搜索，Intellij idea是否支持查看字节码。看到<a href="http://stackoverflow.com/questions/16774744/is-it-possible-to-view-a-java-class-files-bytecode">StackOverflow</a>上有人展示idea 12可以直接查看字节码。但是我在idea 15上却没有找到这个功能，在plugin中确实能看到这个插件，不知道怎么回事，只好自己想办法了。还好，idea给我们提供了“外部工具”功能，使我们能够扩展我们想要的功能。</p>
+
+<h3 id="">实现思路：</h3>
+
+<p>在idea内直接执行javap，将内容打印在IDE的console中。</p>
+
+<h3 id="">实现方式：</h3>
+
+<ol>
+<li>打开File-Settings，或者直接使用快捷键<code>Ctrl+Alt+S</code> <br>
+<img src="http://ghost-blog.b0.upaiyun.com/image/9/2e/33bd6ca7fd4dc4da6a420a78f6fa7.jpg" alt="" title=""> <br>
+2.打开Tools-External Tools，右侧点击绿色“+” <br>
+<img src="http://ghost-blog.b0.upaiyun.com/image/4/75/0b13d82d4665425a8654314887e24.png" alt="" title=""> <br>
+3.添加规则如下 <br>
+<img src="http://ghost-blog.b0.upaiyun.com/image/c/8c/63b58920dc5923ce68a2bf510e0c7.png" alt="" title=""> <br>
+4.代码处右键，即可找到添加的功能 <br>
+<img src="http://ghost-blog.b0.upaiyun.com/image/7/c1/4e96cd4e3c89c3e4776d86951345e.png" alt="" title=""> <br>
+效果如下： <br>
+<img src="http://ghost-blog.b0.upaiyun.com/image/5/12/ffc5013768d0caa4e9adc2c4f347c.png" alt=""></li>
+</ol>
+            </div>
+        </article>
+    </div>
+         </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/nprogress.js"></script>
+<script type="text/javascript" src="js/headroom.min.js"></script>
+<script type="text/javascript" src="js/prism.js"></script>
+<script type="text/javascript" src="js/default.js"></script>
 </body>
-<script src="js/index.js"></script>
 </html>
